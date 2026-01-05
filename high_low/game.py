@@ -1,5 +1,3 @@
-from traceback import print_tb
-
 from .deck import *
 def is_higher(card1, card2):
     return cards[card2[0]] > cards[card1[0]]
@@ -43,11 +41,9 @@ def play_game():
             print(f"\nGame quit. Final streak: {streak}")
             break
 
-
         next_card = draw_card(deck)
         print(f"Next: {next_card[0]}{next_card[1]} "
               f"(value: {cards[next_card[0]]})")
-
 
         if (guess == 'h' and is_higher(current_card, next_card)) or \
                 (guess == 'l' and is_lower(current_card, next_card)):
