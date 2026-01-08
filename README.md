@@ -1,1 +1,31 @@
-# card_game
+## Casino games notes 
+
+- Starting bankroll: $1000 (see `blackjack/blackjack.py` via `DEFAULT_BANKROLL`).
+- Shoe: 4 decks (208 cards). `shuffle_deck(deck)` shuffles in place. `faro_shuffle(deck)` returns a new list — use `deck = faro_shuffle(deck)` if you want the Faro result applied.
+- Card values: 2–10 = face value, J/Q/K = 10, A = 1 or 11 (auto-best, handled by `hand_value`).
+- Dealer rules: shows one card, reveals hidden card after player stands, hits while < 17, stands on 17 or higher.
+- Betting:
+  - Place bets between 1 and your current bankroll.
+  - Main bet is deducted immediately when placed.
+  - Press Enter at the bet prompt to reuse the last valid bet (if it still fits your bankroll).
+  - Non-numeric input is rejected.
+- Insurance:
+  - Offered when dealer shows an Ace.
+  - Costs half the main bet (integer division in code).
+  - Pays 2:1 if dealer has Blackjack (stake returned + 2× payout).
+- Outcomes and payouts:
+  - Win → receive 2× bet (stake returned + winnings).
+  - Push → stake returned.
+  - Loss/bust → stake already deducted.
+  - Insurance win → insurance stake returned + 2× insurance stake.
+- Bust behavior:
+  - If you bust, the main bet has already been removed.
+  - After a bust you are prompted to play another hand unless bankroll is zero.
+- Input controls:
+  - Blackjack: `h` = Hit, `s` = Stand, `q` = Quit, `y`/`n` = confirm prompts.
+  - Higher or Lower: `h` = Higher, `l` = Lower, `q` = Quit.
+- Implementation notes / known limitations:
+  - No splitting, doubling down, or multi-hand play — simplified Blackjack rules.
+  - `draw_card(deck)` uses `pop(0)` (removes from front).
+  - If you expect the Faro shuffle to be applied in `blackjack/blackjack.py`, change the call to `deck = faro_shuffle(deck)` (current code calls `faro_shuffle(deck)` without assignment).
+  - If you observe unexpected bankroll behavior, confirm main bet deduction and payout logic in `blackjack/blackjack.py`.
