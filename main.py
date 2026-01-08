@@ -3,13 +3,14 @@ from high_low.game import play_game
 from blackjack.blackjack import play_blackjack
 
 def main_menu():
-    print("\n🃏 CARD GAME COLLECTION 🃏\n")
+    print("\n WELCOME TO OUR CASINO! \n")
+    print(" Here are the 2 games you can choose from (we are still small) \n")
     print("1. Higher or Lower (Full Deck Challenge)")
     print("2. Blackjack (4 Decks)")
     print("3. Quit")
 
     while True:
-        choice = input("\nChoose a game (1-3): ").strip()
+        choice = input("\nChoose a game (1-high-low; 2- blackjack; 3 - quit): ").strip()
 
         if choice == '1':
             print("\n" + "="*40)
@@ -18,7 +19,7 @@ def main_menu():
             print("\n" + "="*40)
             play_blackjack()
         elif choice == '3' or choice.lower() == 'q':
-            print("\nThanks for playing! Goodbye! 👋")
+            print("\nThanks for playing! Goodbye! :) ")
             break
         else:
             print("Invalid choice! Please enter 1, 2, or 3.")
