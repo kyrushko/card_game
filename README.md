@@ -1,31 +1,124 @@
-## Casino games notes 
+# 🃏 Nikita's Card Game Casino 🃏
 
-- Starting bankroll: $1000 (see `blackjack/blackjack.py` via `DEFAULT_BANKROLL`).
-- Shoe: 4 decks (208 cards). `shuffle_deck(deck)` shuffles in place. `faro_shuffle(deck)` returns a new list — use `deck = faro_shuffle(deck)` if you want the Faro result applied.
-- Card values: 2–10 = face value, J/Q/K = 10, A = 1 or 11 (auto-best, handled by `hand_value`).
-- Dealer rules: shows one card, reveals hidden card after player stands, hits while < 17, stands on 17 or higher.
-- Betting:
-  - Place bets between 1 and your current bankroll.
-  - Main bet is deducted immediately when placed.
-  - Press Enter at the bet prompt to reuse the last valid bet (if it still fits your bankroll).
-  - Non-numeric input is rejected.
-- Insurance:
-  - Offered when dealer shows an Ace.
-  - Costs half the main bet (integer division in code).
-  - Pays 2:1 if dealer has Blackjack (stake returned + 2× payout).
-- Outcomes and payouts:
-  - Win → receive 2× bet (stake returned + winnings).
-  - Push → stake returned.
-  - Loss/bust → stake already deducted.
-  - Insurance win → insurance stake returned + 2× insurance stake.
-- Bust behavior:
-  - If you bust, the main bet has already been removed.
-  - After a bust you are prompted to play another hand unless bankroll is zero.
-- Input controls:
-  - Blackjack: `h` = Hit, `s` = Stand, `q` = Quit, `y`/`n` = confirm prompts.
-  - Higher or Lower: `h` = Higher, `l` = Lower, `q` = Quit.
-- Implementation notes / known limitations:
-  - No splitting, doubling down, or multi-hand play — simplified Blackjack rules.
-  - `draw_card(deck)` uses `pop(0)` (removes from front).
-  - If you expect the Faro shuffle to be applied in `blackjack/blackjack.py`, change the call to `deck = faro_shuffle(deck)` (current code calls `faro_shuffle(deck)` without assignment).
-  - If you observe unexpected bankroll behavior, confirm main bet deduction and payout logic in `blackjack/blackjack.py`.
+**Python CLI Double Trouble: Soft Hi-Lo Marathon & Blackjack Bankroll Rollercoaster!**  
+*Streak forever or bust spectacularly — your choice, boss! 😈🎲*
+
+---
+
+## 🚀 Run It & Deal 'Em
+
+- Run the main Python file that launches the menu (e.g. `main.py`).
+- Pick **1** for Hi-Lo streak heaven.
+- Pick **2** for Blackjack money mayhem.
+- Pick **q** to go home :) 
+- Controls are printed in-game — super newbie-friendly!
+
+---
+
+## 🎮 Higher or Lower: The "Soft" Streak Saga 🌀
+
+A forgiving marathon where one bad guess won't crush your dreams!
+
+### The Vibe
+- Guess **higher (`h`)** or **lower (`l`)** than the current card.
+- Play the whole deck (**51+ guesses**) or quit anytime with **`q`**.
+
+### Soft Mode Magic ✨
+- Wrong guess? **Streak stays the same** — “I wanted it soft hehe” energy.
+- **No rage-quits needed!**
+- **Ties = wrong** (classic rule, keeps it spicy).
+
+### Deck & Shuffle Options
+- **Deck Options:** 1–8 decks for short sprints or insane marathons *(400+ cards? go legend!)*.
+- **Shuffle Flex:** Faro riffle *(12 perfect weaves — pro casino style)* or random chaos.
+
+### Epic Stats
+- Best streak
+- Total correct
+- Perfect run celebration 🏆
+
+### Win Condition
+- Nail every guess = **"LEGENDARY PERFECT RUN!"** *(bragging rights eternal)*
+
+> “One wrong won't kill the streak — but can you conquer hundreds of cards without a single miss?” 🔥
+
+---
+
+## 🎯 Blackjack: Bet Big, Laugh Hard 💰😭
+
+4-deck shoe, real betting thrills, insurance clutch plays — pure casino chaos!
+
+### Bankroll Battle
+- Start with **$1000**
+- Bet **1–all-in** each hand
+
+### Smart Re-bet
+- Press **Enter** to repeat your last bet *(speedrun mode activated!)*
+
+### Insurance Drama
+- Dealer shows **Ace**? Side-bet **half your stake**
+- Pays **2:1** if dealer has Blackjack
+
+### Payouts
+| Outcome | Result |
+|---|---|
+| Win / Dealer Bust | +bet (1:1 — double your money) |
+| Push (tie) | Bet returned 🤝 |
+| Loss / Bust | Lose bet — ouch! |
+
+### Dealer Rules
+- Hits on **< 17**
+- Stands on **17+** *(cold-blooded bot)*
+
+### Actions
+- `h` = hit  
+- `s` = stand  
+- `q` = quit  
+
+### Game Over
+- Hit **$0** → **"You're out of money!"** *(sad trombone plays in head)*
+
+### Shuffle
+- Random + Faro combo for that authentic casino feel
+
+> “All-in on 16 vs dealer 6? Genius or disaster — only one way to find out!” 🕶️🍸
+
+---
+
+## ✨ Cool Features That Slap
+
+- **In-Game Rules:** Printed fresh every session — zero confusion!
+- **Input Forgiveness:** Validation loops, empty re-bet, clean prompts.
+- **Modular & Clean:** Shared deck system, separate logic — ready for expansions.
+- **Pure Python:** No dependencies — runs anywhere, forever.
+- **Personal Touch:** Soft Hi-Lo mode because “hehe” > hardcore rage.
+
+---
+
+## 🛠 Tech Highlights
+
+- Python **3.11+** (but works on anything modern)
+- Custom **Faro riffle shuffle** (12 passes = proper randomization)
+- Options to use multiple decks 
+- Smart bankroll handling with immediate bet deduction
+- Enter to repeat bets
+- Insurance bets
+- Validation loops
+- Bet returns
+- And more!
+
+
+---
+
+## 🎉 Future Heist Ideas
+
+- 3:2 natural Blackjack payout (VIP treatment)
+- Double down & splitting 
+- High score persistence (JSON hall of fame)
+- GUI glow-up (Tkinter casino lights)
+- Sound effects (cha-ching wins, sad wah-wah losses)
+
+---
+
+## 🤝 Made With Love
+House edge? Nah — player vibes only! 🃏💥
